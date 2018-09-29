@@ -24,7 +24,17 @@ List<T>::List()
 template <class T>
 void List<T>::add(std::shared_ptr<Node<T>> node)
 {
-
+    if(head == nullptr)
+    {
+        head = node;
+        tail = node;
+    }
+    else
+    {
+        tail->next = node;
+        node->prev = tail;
+        tail = node;
+    }
 }
 
 template <class T>

@@ -4,6 +4,7 @@
 template<class T>
 class Node
 {
+public:
     T value;
     std::shared_ptr<Node> next;
     std::weak_ptr<Node> prev;
