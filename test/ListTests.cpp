@@ -8,6 +8,7 @@ struct ListTests : public ::testing::Test
     //GIVEN
     List<int> list;
     std::shared_ptr<Node<int>> node5 = std::make_shared<Node<int>>(5);
+    std::shared_ptr<Node<int>> node30 = std::make_shared<Node<int>>(30);
 };
 
 TEST_F(ListTests, GivenEmptyListShouldHaveNullptrOnHeadAndTail)
@@ -22,5 +23,13 @@ TEST_F(ListTests, GivenListWhenAddNode5TailShouldHaveValue5)
     //WHEN
     list.add(node5);
     //THEN
-    ASSERT_EQ(list.getTail()->value,5);
+    ASSERT_EQ(list.getTail()->value, 5);
+}
+
+TEST_F(ListTests, GivenListWhenAddNode30TailShouldHaveValue30)
+{
+    //WHEN
+    list.add(node30);
+    //THEN
+    ASSERT_EQ(list.getTail()->value, 30);
 }
