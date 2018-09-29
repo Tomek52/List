@@ -61,3 +61,15 @@ TEST_F(ListTests, GivenNodesWhenAddNodesToListFindNodeWithValuei4ShouldReturnNul
     //THEN
     ASSERT_EQ(list.find(4), nullptr);
 }
+
+TEST_F(ListTests, GivenNodesWhenAddNodesToListFindNodeWithValuei33ShouldReturn33)
+{
+    //WHEN
+    list.add(node5);
+    list.add(node30);
+    list.add(node33);
+    list.add(node3);
+    list.add(node0);
+    //THEN
+    ASSERT_EQ(list.findBackward(33)->value, 33);
+}

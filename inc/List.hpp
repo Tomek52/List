@@ -14,6 +14,7 @@ class List
         std::shared_ptr<Node<T>> getHead() const;
         std::shared_ptr<Node<T>> getTail() const;
         std::shared_ptr<Node<T>> find(const T& value);
+        std::shared_ptr<Node<T>> findBackward(const T& value);
 };
 
 template <class T>
@@ -58,6 +59,18 @@ std::shared_ptr<Node<T>> List<T>::find(const T& value)
     {
         if (iter->value == value) return iter;
         else iter = iter->next;
+    }
+    return nullptr;
+}
+    
+template <class T>
+std::shared_ptr<Node<T>> List<T>::findBackward(const T& value)
+{
+    auto iter = tail;
+    while(iter != head)
+    {
+        if (iter->value == value) return iter;
+        else iter = iter->prev.lock();
     }
     return nullptr;
 }
