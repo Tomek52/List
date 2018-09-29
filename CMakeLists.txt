@@ -40,8 +40,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(List)
 
 set(SRC_LIST
-    src/Node.cpp
-    src/List.cpp
+    inc/Node.hpp
+    inc/List.hpp
     src/main.cpp
 )
 
@@ -57,6 +57,7 @@ else (UNIX)
 endif (UNIX)
 
 set(TEST_SRC_LIST
+    test/ListTests.cpp
     test/test_main.cpp
 )
 
