@@ -13,6 +13,7 @@ class List
         void add(std::shared_ptr<Node<T>> node);
         std::shared_ptr<Node<T>> getHead() const;
         std::shared_ptr<Node<T>> getTail() const;
+        std::shared_ptr<Node<T>> find(const T& value);
 };
 
 template <class T>
@@ -47,4 +48,16 @@ template <class T>
 std::shared_ptr<Node<T>> List<T>::getTail() const
 {
     return tail;
+}
+
+template <class T>
+std::shared_ptr<Node<T>> List<T>::find(const T& value)
+{
+    auto iter = head;
+    while(iter != tail)
+    {
+        if (iter->value == value) return iter;
+        else iter = iter->next;
+    }
+    return nullptr;
 }
